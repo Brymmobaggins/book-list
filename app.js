@@ -72,19 +72,21 @@ document.getElementById("book-form").addEventListener('submit', function (e) {
     const author = document.getElementById('author').value
     const isbn = document.getElementById('isbn').value
 
-    // Instiate Book 
+    // Validate
+    if (title === "" || author === " " || isbn === "") {
+        alert("Please fill in all field")
+    } else {
+        // Instiate Book 
+        const book = new Book(title, author, isbn)
 
-    const book = new Book(title, author, isbn)
-
-    // Add Book to UI
-
-    UI.addBookToList(book)
-
-    // clear field 
-
-    UI.clearFields()
+        // Add Book to UI
+        UI.addBookToList(book)
 
 
+        // clear field 
+        UI.clearFields()
+
+    }
 })
 
 // Event: remove a Book
